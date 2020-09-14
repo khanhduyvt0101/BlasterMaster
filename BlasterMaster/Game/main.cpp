@@ -16,27 +16,26 @@
 #include "debug.h"
 #include "Game.h"
 #include "GameObject.h"
-
-#define WINDOW_CLASS_NAME L"SampleWindow"
-#define MAIN_WINDOW_TITLE L"01 - Skeleton"
-
-#define BRICK_TEXTURE_PATH L"brick.png"
-#define SOPHIA_TEXTURE_PATH L"sophia.png"
+#include "Textures.h"
 
 
-#define BACKGROUND_COLOR D3DCOLOR_XRGB(255, 0, 0)
+
+#define BACKGROUND_COLOR D3DCOLOR_XRGB(255, 255, 255)
 #define SCREEN_WIDTH 320
 #define SCREEN_HEIGHT 240
 
 #define MAX_FRAME_RATE 10
 
+#define ID_TEX_SOPHIA 0
+#define ID_TEX_ENEMY 10
+#define ID_TEX_MISC 20
+
 using namespace std;
 
 CGame *game;
-CSophia *sophia;
-CGameObject *brick;
+CGameObject *sophia;
 
-//vector<LPGAMEOBJECT> objects;  
+
 
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -52,15 +51,64 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 }
 
 /*
-	Load all game resources. In this example, create a brick object and mario object
+	Load all game resources.
 */
 void LoadResources()
 {
-	sophia = new CSophia(SOPHIA_TEXTURE_PATH);
-	sophia->SetPosition(0, 0);
+	CTextures * textures = CTextures::GetInstance();
 
-	brick = new CGameObject(BRICK_TEXTURE_PATH);
-	brick->SetPosition(10.0f, 100.0f);
+	textures->Add(ID_TEX_SOPHIA, L"textures\\sophia.png", D3DCOLOR_XRGB(176, 224, 248));
+	//textures->Add(ID_ENEMY_TEXTURE, L"textures\\enemies.png", D3DCOLOR_XRGB(156, 219, 239));
+	//textures->Add(ID_TEX_MISC, L"textures\\misc.png", D3DCOLOR_XRGB(156, 219, 239));
+
+
+	CSprites * sprites = CSprites::GetInstance();
+
+	LPDIRECT3DTEXTURE9 texSophia = textures->Get(ID_TEX_SOPHIA);
+
+	// readline => id, left, top, right 
+
+	sprites->Add(10001, 121, 81, 121 + 25, 84 + 32, texSophia);
+	sprites->Add(10002, 120, 40, 120 + 25, 40 + 34, texSophia);
+	sprites->Add(10003, 122, 120, 122 + 24, 120 + 33, texSophia);
+
+	sprites->Add(10011, 41, 80, 41+24, 80+32, texSophia);
+	sprites->Add(10012, 41, 40, 41+24, 40+33, texSophia);
+	sprites->Add(10013, 41, 120, 41+24, 120+33, texSophia);
+
+	/*LPDIRECT3DTEXTURE9 texMisc = textures->Get(ID_TEX_MISC);
+	sprites->Add(20001, 300, 117, 315, 132, texMisc);
+	sprites->Add(20002, 318, 117, 333, 132, texMisc);
+	sprites->Add(20003, 336, 117, 351, 132, texMisc);
+	sprites->Add(20004, 354, 117, 369, 132, texMisc);*/
+
+
+	CAnimations * animations = CAnimations::GetInstance();
+	LPANIMATION ani;
+
+	ani = new CAnimation(100);
+	ani->Add(10001);
+	ani->Add(10002);
+	ani->Add(10003);
+	animations->Add(500, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(10011);
+	ani->Add(10012);
+	ani->Add(10013);
+	animations->Add(501, ani);
+
+	/*
+	ani = new CAnimation(100);
+	ani->Add(20001,1000);
+	ani->Add(20002);
+	ani->Add(20003);
+	ani->Add(20004);
+	animations->Add(510, ani);
+	*/
+
+	sophia = new CGameObject();
+	sophia->SetPosition(10.0f, 100.0f);
 }
 
 /*
@@ -69,12 +117,9 @@ void LoadResources()
 */
 void Update(DWORD dt)
 {
-	/*
-	for (int i=0;i<n;i++)
-		objects[i]->Update(dt);
-	*/
+	
 	sophia->Update(dt);
-	brick->Update(dt);
+	
 }
 
 /*
@@ -93,10 +138,23 @@ void Render()
 
 		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
 
-
 		sophia->Render();
-		brick->Render();
 
+		//
+		// TEST SPRITE DRAW
+		//
+
+		/*
+		CTextures *textures = CTextures::GetInstance();
+
+		D3DXVECTOR3 p(20, 20, 0);
+		RECT r;
+		r.left = 274;
+		r.top = 234;
+		r.right = 292;
+		r.bottom = 264;
+		spriteHandler->Draw(textures->Get(ID_TEX_MARIO), &r, NULL, &p, D3DCOLOR_XRGB(255, 255, 255));
+		*/
 
 		spriteHandler->End();
 		d3ddv->EndScene();
@@ -121,15 +179,15 @@ HWND CreateGameWindow(HINSTANCE hInstance, int nCmdShow, int ScreenWidth, int Sc
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
 	wc.lpszMenuName = NULL;
-	wc.lpszClassName = WINDOW_CLASS_NAME;
+	wc.lpszClassName = L"BLASTER MASTER";
 	wc.hIconSm = NULL;
 
 	RegisterClassEx(&wc);
 
 	HWND hWnd =
 		CreateWindow(
-			WINDOW_CLASS_NAME,
-			MAIN_WINDOW_TITLE,
+			L"BLASTER MASTER",
+			L"BLASTER MASTER GAME",
 			WS_OVERLAPPEDWINDOW, // WS_EX_TOPMOST | WS_VISIBLE | WS_POPUP,
 			CW_USEDEFAULT,
 			CW_USEDEFAULT,
@@ -158,7 +216,7 @@ int Run()
 	MSG msg;
 	int done = 0;
 	DWORD frameStart = GetTickCount();
-	DWORD tickPerFrame = 1000 / MAX_FRAME_RATE;
+	DWORD tickPerFrame = 100 / MAX_FRAME_RATE;
 
 	while (!done)
 	{

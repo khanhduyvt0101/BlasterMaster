@@ -3,29 +3,33 @@
 #include "Game.h"
 #include "GameObject.h"
 
-CGameObject::CGameObject(LPCWSTR texturePath)
+CGameObject::CGameObject()
 {
 	x = y = 0;
-	texture = CGame::GetInstance()->LoadTexture(texturePath);
+	vx = 0.07f;
 }
 
 void CGameObject::Update(DWORD dt)
 {
-	
+	x += vx * dt;
+	if ((vx > 0 && x > 290) || (x < 0 && vx < 0)) vx = -vx;
 }
 
 void CGameObject::Render()
 {
-	CGame::GetInstance()->Draw(x, y, texture);
+	LPANIMATION ani;
+	//if (vx>0) ani = animations[0]; else ani = animations[1];
+
+	if (vx > 0) ani = CAnimations::GetInstance()->Get(500);
+	else ani = CAnimations::GetInstance()->Get(501);
+
+	//ani = animations[0];
+	ani->Render(x, y);
 }
 
 CGameObject::~CGameObject()
 {
-	if (texture != NULL) texture->Release();
+	
 }
 
-void CSophia::Update(DWORD dt)
-{
-	x += 0.1f*dt;
-	if (x > 320) x = 0;
-}
+

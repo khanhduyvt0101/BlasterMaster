@@ -2,6 +2,8 @@
 
 #include <Windows.h>
 #include <d3dx9.h>
+#include "Sprites.h"
+#include "Animations.h"
 
 class CGameObject
 {
@@ -9,20 +11,21 @@ protected:
 	float x;
 	float y;
 
-	LPDIRECT3DTEXTURE9 texture;
+	float vx;
+
+	int currentState;
+
+	//static vector<LPANIMATION> animations; 
+	vector<LPANIMATION> animations;
 public:
 	void SetPosition(float x, float y) { this->x = x, this->y = y; }
+	void SetState(int state) { this->currentState = state; }
 
-	CGameObject(LPCWSTR texturePath);
+	CGameObject();
+
 	void Update(DWORD dt);
 	void Render();
 	~CGameObject();
 };
 typedef CGameObject * LPGAMEOBJECT;
 
-class CSophia : public CGameObject
-{
-public:
-	CSophia(LPCWSTR texturePath) :CGameObject(texturePath) {};
-	void Update(DWORD dt);
-};
