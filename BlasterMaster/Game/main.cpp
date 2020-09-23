@@ -11,29 +11,27 @@
 #include <windows.h>
 #include <d3d9.h>
 #include <d3dx9.h>
-#include <vector>
 
-#include "debug.h"
+#include "Utils.h"
 #include "Game.h"
 #include "GameObject.h"
 #include "Textures.h"
 
+#include "Sophia.h"
+#include "Brick.h"
 
+
+#include "PlayScence.h"
 
 #define BACKGROUND_COLOR D3DCOLOR_XRGB(255, 255, 255)
 #define SCREEN_WIDTH 320
 #define SCREEN_HEIGHT 240
 
-#define MAX_FRAME_RATE 10
-
-#define ID_TEX_SOPHIA 0
-#define ID_TEX_ENEMY 10
-#define ID_TEX_MISC 20
+#define MAX_FRAME_RATE 100
 
 using namespace std;
 
 CGame *game;
-CGameObject *sophia;
 
 
 
@@ -53,72 +51,11 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 /*
 	Load all game resources.
 */
-void LoadResources()
-{
-	CTextures * textures = CTextures::GetInstance();
 
-	textures->Add(ID_TEX_SOPHIA, L"textures\\sophia.png", D3DCOLOR_XRGB(176, 224, 248));
-	//textures->Add(ID_ENEMY_TEXTURE, L"textures\\enemies.png", D3DCOLOR_XRGB(156, 219, 239));
-	//textures->Add(ID_TEX_MISC, L"textures\\misc.png", D3DCOLOR_XRGB(156, 219, 239));
-
-
-	CSprites * sprites = CSprites::GetInstance();
-
-	LPDIRECT3DTEXTURE9 texSophia = textures->Get(ID_TEX_SOPHIA);
-
-	// readline => id, left, top, right 
-
-	sprites->Add(10001, 121, 81, 121 + 25, 84 + 32, texSophia);
-	sprites->Add(10002, 120, 40, 120 + 25, 40 + 34, texSophia);
-	sprites->Add(10003, 122, 120, 122 + 24, 120 + 33, texSophia);
-
-	sprites->Add(10011, 41, 80, 41+24, 80+32, texSophia);
-	sprites->Add(10012, 41, 40, 41+24, 40+33, texSophia);
-	sprites->Add(10013, 41, 120, 41+24, 120+33, texSophia);
-
-	/*LPDIRECT3DTEXTURE9 texMisc = textures->Get(ID_TEX_MISC);
-	sprites->Add(20001, 300, 117, 315, 132, texMisc);
-	sprites->Add(20002, 318, 117, 333, 132, texMisc);
-	sprites->Add(20003, 336, 117, 351, 132, texMisc);
-	sprites->Add(20004, 354, 117, 369, 132, texMisc);*/
-
-
-	CAnimations * animations = CAnimations::GetInstance();
-	LPANIMATION ani;
-
-	ani = new CAnimation(100);
-	ani->Add(10001);
-	ani->Add(10002);
-	ani->Add(10003);
-	animations->Add(500, ani);
-
-	ani = new CAnimation(100);
-	ani->Add(10011);
-	ani->Add(10012);
-	ani->Add(10013);
-	animations->Add(501, ani);
-
-	/*
-	ani = new CAnimation(100);
-	ani->Add(20001,1000);
-	ani->Add(20002);
-	ani->Add(20003);
-	ani->Add(20004);
-	animations->Add(510, ani);
-	*/
-
-	sophia = new CGameObject();
-	sophia->SetPosition(10.0f, 100.0f);
-}
-
-/*
-	Update world status for this frame
-	dt: time period between beginning of last frame and beginning of this frame
-*/
 void Update(DWORD dt)
 {
 	
-	sophia->Update(dt);
+	CGame::GetInstance()->GetCurrentScene()->Update(dt);
 	
 }
 
@@ -138,23 +75,7 @@ void Render()
 
 		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
 
-		sophia->Render();
-
-		//
-		// TEST SPRITE DRAW
-		//
-
-		/*
-		CTextures *textures = CTextures::GetInstance();
-
-		D3DXVECTOR3 p(20, 20, 0);
-		RECT r;
-		r.left = 274;
-		r.top = 234;
-		r.right = 292;
-		r.bottom = 264;
-		spriteHandler->Draw(textures->Get(ID_TEX_MARIO), &r, NULL, &p, D3DCOLOR_XRGB(255, 255, 255));
-		*/
+		CGame::GetInstance()->GetCurrentScene()->Render();
 
 		spriteHandler->End();
 		d3ddv->EndScene();
@@ -216,7 +137,7 @@ int Run()
 	MSG msg;
 	int done = 0;
 	DWORD frameStart = GetTickCount();
-	DWORD tickPerFrame = 100 / MAX_FRAME_RATE;
+	DWORD tickPerFrame = 1000 / MAX_FRAME_RATE;
 
 	while (!done)
 	{
@@ -237,6 +158,9 @@ int Run()
 		if (dt >= tickPerFrame)
 		{
 			frameStart = now;
+
+			game->ProcessKeyboard();
+
 			Update(dt);
 			Render();
 		}
@@ -253,8 +177,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	game = CGame::GetInstance();
 	game->Init(hWnd);
+	game->InitKeyboard();
 
-	LoadResources();
+	game->Load(L"mario-sample.txt");
+
+	SetWindowPos(hWnd, 0, 0, 0, SCREEN_WIDTH * 2, SCREEN_HEIGHT * 2, SWP_NOMOVE | SWP_NOOWNERZORDER | SWP_NOZORDER);
+
 	Run();
 
 	return 0;

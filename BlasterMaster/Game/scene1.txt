@@ -1,0 +1,209 @@
+# id	file_path	transparent_color_r	g	b
+[TEXTURES]
+0	textures\sophia.png	255	255	255
+20	textures\misc.png	176	224	248
+
+
+
+# id	left	top	right	bottom	texture_id
+[SPRITES]
+# SOPHIA
+
+#RIGHT
+# idle right1
+10000	146	5	172	23	0
+# idle right2
+10001	178	5	204	23	0
+# idle right3
+10002	211	5	237	23	0
+# idle right4
+10003	242	5	268	23	0
+
+#walk
+10004	146	5	172	23	0
+10005	146	30	172	48	0
+10006	178	5	204	23	0
+10007	178	30	204	47	0
+10008	211	5	237	23	0
+10009	210	30	236	48	0
+10010	242	5	268	23	0
+10011	243	30	269	48	0
+
+# idle jump up idle right
+
+10012	146	5	172	23	0
+# idle jump up walking right
+10013	178	130	204	151	0
+10014	211	130	237	151	0
+10015	245	130	271	151	0
+# idle jump down idle right
+10016	146	31	172	48	0
+10017	146	55	172	72	0
+# idle jump down walking right
+10021	177	56	203	72	0
+10022	211	56	237	72	0
+10023	243	56	269	72	0
+
+
+#LEFT
+# idle left1
+10101	109	5	135	23	0
+# idle left2
+10102	77	5	103	23	0
+# idle left3
+10103	44	5	70	23	0
+# idle left4
+10104	13	5	39	23	0
+#walk
+10105	109	30	135	48	0
+10106	109	5	135	23	0
+
+10107	77	30	103	48	0
+10108	77	5	103	23	0
+
+10109	45	30	71	48	0
+10110	44	5	70	23	0
+
+10111	12	30	38	48	0
+10112	13	5	39	23	0
+
+# idle jump up idle left
+10113	109	130	135	151	0
+# idle jump up walking left
+10114	77	130	103	151	0
+10115	44	130	70	151	0
+10116	13	130	39	151	0
+# idle jump down idle left
+10211	109	56	135	72	0
+# idle jump down walking left
+10212	78	56	104	72	0
+10213	44	56	70	72	0
+10214	12	56	38	72	0
+
+# die 
+#10099	148	320	193	360	30
+
+
+
+#BRICK
+20001	408	225	424	241	20
+
+						
+# ani_id	sprite1_id	time1	sprite2_id	time2	...
+[ANIMATIONS]
+
+# ==== SOPHIA =========
+#RIGHT
+# idle right1
+400	10000	100
+# idle right1
+401	10001	100
+# idle right1
+402	10002	100
+# idle right1
+403	10003	100
+
+
+#walk
+410	10005	60	10006	60	10007	60	10008	60	10009	60	10010	60	10011	60	10012	60
+# idle jump up idle right
+420	10012	100
+# idle jump up walking right
+421	10013	150	10014	150	10015	150
+# idle jump down idle left
+430	10016	150	10017	200
+# idle jump down walking right
+431	10021	150	10022	150	10023	150
+
+
+
+#LEFT
+# idle left1
+500	10101	100
+# idle left2
+501	10102	100
+# idle left3
+502	10103	100
+# idle left4
+503	10104	100
+
+#walk
+504	10105	60	10106	60	10107	60	10108	60	10109	60	10110	60	10111	60	10112	60
+# idle jump up idle left
+510	10113	100
+# idle jump up walking left
+511	10114	100	10115	100	10116	100
+# idle jump down idle left
+514	10211	100
+# idle jump down walking left
+515	10212	100	10213	100	10214	100
+
+#die
+#520	10099	100
+
+# ==== BRICK =========
+601	20001	100
+
+
+
+
+
+
+
+
+#
+# id	ani1	ani2	ani3
+#
+[ANIMATION_SETS]
+# SOPHIA
+1	400	401	402	403	410	420	421	430	431	500	501	502	503	504	510	511	514	515	520
+# BRICK 
+2	601
+
+
+
+[OBJECTS]
+# type	x	y	ani_set_id	extra_settings per object type
+# type: 0 = Mario , 1 = Brick, 2 = Goomba
+# MARIO
+0	50.0	0	1
+
+
+# BRICK 
+# --- platform (hint: I created the list using Excel!) ----
+1	0	150	2
+1	16	150	2
+1	32	150	2
+1	48	150	2
+1	64	150	2
+1	80	150	2
+1	96	150	2
+1	112	150	2
+1	128	150	2
+1	144	150	2
+1	160	150	2
+1	176	150	2
+1	192	150	2
+1	208	150	2
+1	224	150	2
+1	240	150	2
+1	256	150	2
+1	272	150	2
+1	288	150	2
+1	304	150	2
+1	320	150	2
+1	336	150	2
+1	352	150	2
+1	368	150	2
+1	384	150	2
+1	400	150	2
+1	416	150	2
+1	432	150	2
+1	448	150	2
+
+
+
+# --- SCENE PORTAL ----
+# type	l	t	ani_set_id	r	b	scene_id
+50	300	98	0	316	150	2
+

@@ -1,0 +1,140 @@
+# id	file_path	transparent_color_r	g	b
+[TEXTURES]
+0	textures\mario.png	255	255	255
+20	textures\misc.png	176	224	248
+30	textures\sophia.png	255	255	255
+
+
+# id	left	top	right	bottom	texture_id
+[SPRITES]
+# BIG MARIO 
+# idle right
+10001	146	5	172	23	30
+# walk
+10002	178	31	204	47	30
+10003	178	5	204	33	30
+10004	210	31	236	47	30
+10005	211	5	237	23	30
+10006	243	31	269	47	30
+10007	242	5	268	23	30
+10008	146	31	172	47	30
+# idle left
+10011	109	5	135	23	30
+#walk
+10012	77	31	103	48	30
+10013	77	5	103	23	30
+10014	45	31	71	48	30
+10015	44	5	70	23	30
+10016	12	31	38	48	30
+10017	13	5	39	23	30
+10018	109	31	135	48	30
+# die 
+10099	148	320	193	360	30
+# idle jump up idle right
+10101	146	130	172	151	30
+# idle jump up walking right
+10102	178	130	204	151	30
+10103	211	130	237	151	30
+10104	245	130	271	151	30
+# idle jump up idle left
+10111	109	130	135	151	30
+# idle jump up walking left
+10112	77	130	103	151	30
+10113	44	130	70	151	30
+10114	13	130	39	151	30
+# idle jump down idle right
+10201	146	56	172	72	30
+# idle jump down walking right
+10202	177	56	203	72	30
+10203	211	56	237	72	30
+10204	243	56	269	72	30
+# idle jump down idle left
+10211	109	56	135	72	30
+# idle jump down walking left
+10212	78	56	104	72	30
+10213	44	56	70	72	30
+10214	12	56	38	72	30
+# SMALL MARIO
+# idle small right
+10021	247	0	259	15	0
+# walk
+10022	275	0	291	15	0
+10023	306	0	320	15	0
+# idle small left
+10031	187	0	198	15	0
+# walk
+10032	155	0	170	15	0
+10033	125	0	139	15	0
+
+#QUESTION BRICK
+40001	300	117	316	133	20
+40002	318	117	334	133	20
+40003	336	117	352	133	20
+40004	355	117	370	133	20
+
+# ani_id	sprite1_id	time1	sprite2_id	time2	...
+[ANIMATIONS]
+# ==== MARIO =========
+#idle BIG right
+400	10001	100
+#idle BIG left
+401	10011	100
+#idle small right
+402	10021	100
+#idle small left
+403	10031	100
+#walk right big
+500	10001	100	10002	100	10003	100	10004	100	10005	100	10006	100	10007	100	10008	100
+#walk left big
+501	10011	100	10012	100	10013	100	10014	100	10015	100	10016	100	10017	100	10018	100
+
+#die
+599	10099	100
+# idle jump up idle right
+410	10101	100
+# idle jump up idle left
+411	10111	100
+# idle jump down idle right
+420	10201	100
+# idle jump down idle left
+421	10211	100
+# idle jump up walking right
+412	10101	100	10102	100	10103	100	10104	100
+# idle jump up walking left
+413	10111	100	10112	100	10113	100	10114	100
+# idle jump down walking right
+422	10201	100	10202	100	10203	100	10204	100
+# idle jump down walking left
+423	10211	100	10212	100	10213	100	10214	100
+
+# ==== QUESTION BRICK =========
+602	40001	1000	40001	100	40002	100	40003	100	40004	100
+
+#
+# id	ani1	ani2	ani3
+#
+[ANIMATION_SETS]
+# MARIO
+1	400	401	402	403	500	501	599	410	411	420	421	412	413	422	423
+# QUESTION BRICK 
+22	602
+
+[OBJECTS]
+# type	x	y	ani_set_id	extra_settings per object type
+# type: 0 = Mario , 1 = Brick, 2 = Goomba, 3 = Koopas
+# MARIO
+0	17	115	1
+
+# BRICK 
+1	0	135	22
+1	0	150	22
+1	16	150	22
+1	32	150	22
+1	100	150	22
+1	115	150	22
+1	130	150	22
+
+# --- SCENE PORTAL ----
+# type	l	t	ani_set_id	r	b	scene_id
+50	75	98	0	140	150	1
+
