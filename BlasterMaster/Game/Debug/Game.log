@@ -1,4 +1,0 @@
-﻿  Sophia.cpp
-g:\github\blastermaster\blastermaster\game\sophia.cpp(97): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-g:\github\blastermaster\blastermaster\game\sophia.cpp(168): warning C4101: 'ani': unreferenced local variable
-  Game.vcxproj -> G:\Github\BlasterMaster\BlasterMaster\Debug\Game.exe
