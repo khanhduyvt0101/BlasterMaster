@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="BigSophiaBullet.cpp">
+      <Filter>Object\Player\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Animations.cpp">
+      <Filter>Framework\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Brick.cpp">
+      <Filter>Object\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="BrickBreaker.cpp">
+      <Filter>Object\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Object\Player\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Object\Enemy\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossHand.cpp">
+      <Filter>Object\Enemy\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletBoss.cpp">
+      <Filter>Object\Enemy\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Cannons.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="debug.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Centipede.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="define.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Domes.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Gate.cpp">
+      <Filter>Object\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="GateImage.cpp">
+      <Filter>Object\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="GateV2.cpp">
+      <Filter>Object\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="GunUp.cpp">
+      <Filter>Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthBar.cpp">
+      <Filter>Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeBulletDetail.cpp">
+      <Filter>Object\Player\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeBullet.cpp">
+      <Filter>Object\Player\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Golem.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Orbs.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="OrbEz.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Mines.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Skulls.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Teleporters.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletCannons.cpp">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletEnemy.cpp">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletEnemyV2.cpp">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletEyeballs.cpp">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletFloaters.cpp">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletMines.cpp">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletSkulls.cpp">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="DSutil.cpp">
+      <Filter>Framework\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>Framework\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprites.cpp">
+      <Filter>Framework\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Framework\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="ElectricBullet.cpp">
+      <Filter>Object\Player\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="MainJasonBullet.cpp">
+      <Filter>Object\Player\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniSophia.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerV2.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Insect.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Floaters.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Eyeballs.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="LavaBrick.cpp">
+      <Filter>Object\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Stair.cpp">
+      <Filter>Object\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerUp.cpp">
+      <Filter>Object\Item</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BigSophiaBullet.h">
+      <Filter>Object\Player\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Animations.h">
+      <Filter>Framework\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Brick.h">
+      <Filter>Object\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="BrickBreaker.h">
+      <Filter>Object\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Object\Player\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Object\Enemy\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BossHand.h">
+      <Filter>Object\Enemy\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletBoss.h">
+      <Filter>Object\Enemy\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Cannons.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="debug.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Centipede.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Domes.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Gate.h">
+      <Filter>Object\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="GateImage.h">
+      <Filter>Object\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="GateV2.h">
+      <Filter>Object\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="GunUp.h">
+      <Filter>Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthBar.h">
+      <Filter>Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD.h">
+      <Filter>Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeBulletDetail.h">
+      <Filter>Object\Player\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeBullet.h">
+      <Filter>Object\Player\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Golem.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Orbs.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="OrbEz.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Mines.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Skulls.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Teleporters.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletCannons.h">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletEnemy.h">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletEnemyV2.h">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletEyeballs.h">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletFloaters.h">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletMines.h">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletSkulls.h">
+      <Filter>Object\Enemy\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="DSutil.h">
+      <Filter>Framework\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>Framework\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprites.h">
+      <Filter>Framework\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardHandler.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Framework\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="ElectricBullet.h">
+      <Filter>Object\Player\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="MainJasonBullet.h">
+      <Filter>Object\Player\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniSophia.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerV2.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Insect.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Floaters.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Eyeballs.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="LavaBrick.h">
+      <Filter>Object\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="Stair.h">
+      <Filter>Object\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerUp.h">
+      <Filter>Object\Item</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{3d20ca36-cde4-4a7e-ae5f-4226699be886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{8c3d10f5-1bb9-498d-981d-96fb10659a6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{373103cf-29bf-4695-a319-f5671e10c2b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Render">
+      <UniqueIdentifier>{b4124f6c-45d5-4055-845e-bdd2229eb91a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Enemy">
+      <UniqueIdentifier>{d66508be-5b98-4648-8fbc-4890016a5036}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Sound">
+      <UniqueIdentifier>{e83cc464-9ca2-4221-9a2e-3ff6115886d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Item">
+      <UniqueIdentifier>{604cd1cf-912c-4b0a-a5de-9b5be0547d5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Enemy\Bullet">
+      <UniqueIdentifier>{04209252-9fc6-4140-b150-e0ee9de6ccd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Enemy\Boss">
+      <UniqueIdentifier>{3e095986-6889-4f91-882f-5c19a43f5244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Player">
+      <UniqueIdentifier>{ae026210-0f89-43fa-aba9-fdf19fac08c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Player\Bullet">
+      <UniqueIdentifier>{1a693025-a7ea-4de4-834f-4397edbc82ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Static">
+      <UniqueIdentifier>{fb89a22f-86e9-4cbd-8337-e68cdab462d0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
